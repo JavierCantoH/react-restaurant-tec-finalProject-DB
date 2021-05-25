@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Info
 
-ITESM Campus Puebla
-Luis Javier Canto Hurtado
+ITESM Campus Puebla. 
+Luis Javier Canto Hurtado - 
 Dafne Linette Badillo Campuzano
 
 ### `yarn start`
