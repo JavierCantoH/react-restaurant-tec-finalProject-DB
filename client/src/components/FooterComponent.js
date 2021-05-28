@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Footer(props) {
+function Footer() {
     return(
         <div className="footer">
             <div className="container">
@@ -12,7 +12,8 @@ function Footer(props) {
                             <li><Link to='/home'>Inicio</Link></li>
                             <li><Link to='/aboutus'>Conócenos</Link></li>
                             <li><Link to='/menu'>Menú</Link></li>
-                            <li><Link to='/contactus'>Contáctanos</Link></li>
+                            <li><Link to='/staff'>Staff</Link></li>
+                            <li><Link to='/foro'>Foro</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">

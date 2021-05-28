@@ -3,8 +3,6 @@ import Menu from './MenuComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
-//import Contact from './ContactComponent';
-//import DishDetail from './DishdetailComponent';
 import About from './AboutComponent';
 import Staff from './StaffComponent.js';
 import Foro from './ForoComponent.js';
@@ -35,10 +33,6 @@ const mapDispatchToProps = dispatch => ({
 
 class Main extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    // }
-
     componentDidMount() {
         this.props.fetchDishes();
     }
@@ -58,26 +52,12 @@ class Main extends Component {
             );
         }
 
-        // const DishWithId = ({match}) => {
-        //     return(
-        //         <DishDetail 
-        //             dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-        //             isLoading={this.props.dishes.isLoading}
-        //             errMess={this.props.dishes.errMess} 
-        //             comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
-        //             addComment={this.props.addComment} 
-        //         />
-        //     );
-        // };
-
         return (
             <div>
                 <Header />
                     <Switch>
                         <Route path='/home' component={HomePage} />
                         <Route exact path='/menu' component={() => <Menu/>} />
-                        {/* <Route path='/menu/:dishId' component={DishWithId} /> */}
-                        {/* <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} /> */}
                         <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
                         <Route exact path='/staff' component={() => <Staff/>} />
                         <Route exact path='/foro' component={() => <Foro />} />
