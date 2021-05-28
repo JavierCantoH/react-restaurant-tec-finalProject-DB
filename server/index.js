@@ -24,7 +24,7 @@ app.post('/create',(req, res) => {
     const salary = req.body.salary;
 
     //mysql query to insert data
-    db.query("INSERT INTO empleado(role,nombre,country,salary) VALUES(?,?,?,?)", 
+    db.query("INSERT INTO empleado(role,name,country,salary) VALUES(?,?,?,?)", 
         [role, name, country, salary], 
         (err,result) => {
             if (err) {
@@ -65,6 +65,37 @@ app.put('/update', (req, res) => {
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id
     db.query("DELETE FROM empleado WHERE id = ?", id, (err, result) => {
+        if(err){
+            console.log(err);
+        } else{
+            res.send(result);
+        }
+    });
+});
+
+// insert new status 
+app.post('/addCheck',(req, res) => {
+    const idEmployee = req.body.idEmployee;
+    const status = req.body.status;
+    const created = req.body.created
+
+    //mysql query to insert data
+    db.query("INSERT INTO attendance(idEmployee,status,created) VALUES(?,?,?)", 
+        [idEmployee, status, created], 
+        (err,result) => {
+            if (err) {
+                console.log(err);
+            } else{
+                res.send("Values inserted");
+                console.log(result);
+            }
+        }
+    );
+});
+
+// select * to show all status
+app.get('/showCheck', (req, res) => {
+    db.query(" SELECT * FROM attendance", (err, result) => {
         if(err){
             console.log(err);
         } else{

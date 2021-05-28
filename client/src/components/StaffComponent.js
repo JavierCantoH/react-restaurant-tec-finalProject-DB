@@ -124,6 +124,7 @@ function Staff() {
                     return (
                         <div className="employee">
                             <div>
+                                <h3>Id: {val.id}</h3>
                                 <h3>Cargo: {val.role}</h3>
                                 <h3>Nombre: {val.name}</h3>
                                 <h3>País: {val.country}</h3>

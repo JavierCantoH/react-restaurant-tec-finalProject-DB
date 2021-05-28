@@ -6,6 +6,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Staff from './StaffComponent.js';
 import Foro from './ForoComponent.js';
+import Check from './Checkinout';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';
@@ -61,6 +62,7 @@ class Main extends Component {
                         <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
                         <Route exact path='/staff' component={() => <Staff/>} />
                         <Route exact path='/foro' component={() => <Foro />} />
+                        <Route exact path='/check' component={() => <Check />} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />
