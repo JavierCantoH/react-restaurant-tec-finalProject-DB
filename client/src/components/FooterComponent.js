@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Footer(props) {
+function Footer() {
     return(
         <div className="footer">
             <div className="container">
@@ -12,7 +12,10 @@ function Footer(props) {
                             <li><Link to='/home'>Inicio</Link></li>
                             <li><Link to='/aboutus'>Conócenos</Link></li>
                             <li><Link to='/menu'>Menú</Link></li>
-                            <li><Link to='/contactus'>Contáctanos</Link></li>
+                            <li><Link to='/roles'>Cargos</Link></li>
+                            <li><Link to='/staff'>Staff</Link></li>
+                            <li><Link to='/foro'>Foro</Link></li>
+                            <li><Link to='/check'>Check in/out</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">
@@ -26,10 +29,10 @@ function Footer(props) {
                     </div>
                     <div className="col-12 col-sm-4 align-self-center">
                         <div className="text-center">
-                            <a className="btn btn-social-icon" href="https://www.facebook.com/healthyyplacee"><i className="fa fa-facebook"></i></a>
-                            <a className="btn btn-social-icon" href="https://instagram.com/healthyyplacee?utm_medium=copy_link"><i className="fa fa-instagram"></i></a>
-                            <a className="btn btn-social-icon" href="https://api.whatsapp.com/send?phone=527711868926"><i className="fa fa-whatsapp"></i></a>
-                            <a className="btn btn-social-icon" href="mailto:healthy.placee@gmail.com"><i className="fa fa-envelope-o"></i></a>
+                            <a className="btn btn-social-icon" href="https://www.facebook.com/healthyyplacee"><i className="fab fa-facebook-square fa-lg"></i></a>
+                            <a className="btn btn-social-icon" href="https://instagram.com/healthyyplacee?utm_medium=copy_link"><i className="fab fa-instagram-square fa-lg"></i></a>
+                            <a className="btn btn-social-icon" href="https://api.whatsapp.com/send?phone=527711868926"><i className="fab fa-whatsapp-square fa-lg"></i></a>
+                            <a className="btn btn-social-icon" href="mailto:healthy.placee@gmail.com"><i className="fas fa-envelope fa-lg"></i></a>
                         </div>
                     </div>
                 </div>

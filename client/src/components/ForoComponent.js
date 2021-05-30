@@ -2,9 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-//prueba javierBranch
-
-function Foro(props) {
+function Foro() {
 
     return(
         <div className="container">

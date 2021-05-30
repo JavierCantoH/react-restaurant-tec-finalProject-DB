@@ -1,0 +1,70 @@
+mysql -u root -p
+
+CREATE DATABASE employeedb;
+
+USE employeedb;
+
+CREATE TABLE role(
+	id INT NOT NULL AUTO_INCREMENT,
+	roles VARCHAR(45) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE empleado(
+	id INT NOT NULL AUTO_INCREMENT,
+	role INT NOT NULL,
+	name VARCHAR(45) NOT NULL,
+	country VARCHAR(45) NOT NULL,
+	salary INT NOT NULL,
+	FOREIGN KEY(role) REFERENCES role(id),
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE attendance(
+	id INT NOT NULL AUTO_INCREMENT,
+	idEmployee INT NOT NULL,
+	status ENUM('check_in','check_out') NOT NULL,
+	created DATETIME,
+	FOREIGN KEY(idEmployee) REFERENCES empleado(id) ON DELETE CASCADE,
+	PRIMARY KEY(id)
+);
+
+# STORED PROCEDURES: 
+DROP PROCEDURE GetRoles;
+DROP PROCEDURE GetEmployees;
+DROP PROCEDURE GetAttendances;
+
+DELIMITER $$
+CREATE PROCEDURE GetRoles()
+BEGIN SELECT * FROM role;    
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE GetEmployees()
+BEGIN SELECT * FROM empleado;    
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE GetAttendances()
+BEGIN SELECT * FROM attendance;    
+END$$
+DELIMITER ;
+
+# TRIGGERS:
+CREATE TABLE empleado_trigger_table (
+    idTriggerTable INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL,
+    salary INT NOT NULL,
+    changedat DATETIME DEFAULT NULL,
+    action VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TRIGGER before_salary_update 
+BEFORE UPDATE ON empleado
+FOR EACH ROW INSERT INTO empleado_trigger_table SET action = 'update', id = OLD.id, salary = OLD.salary, changedat = NOW();
+SHOW TRIGGERS;
+# Make a salary update to test TRIGGER
+SELECT * FROM empleado_trigger_table;
+

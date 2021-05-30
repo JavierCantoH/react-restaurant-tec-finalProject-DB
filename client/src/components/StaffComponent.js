@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardHeader, CardBody} from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 //using axios to make API request
 import Axios from 'axios'
@@ -41,9 +41,9 @@ function Staff() {
         });   
     };
 
-    //update salary function
+    //update employee salary function
     const updateEmployeeSalary = (id) => {
-        Axios.put('http://localhost:3001/update', {
+        Axios.put('http://localhost:3001/updatesalary', {
             salary: newSalary,
             id: id
         }).then((response) => {
@@ -52,6 +52,7 @@ function Staff() {
             setEmployeeList(employeeList.map((val) => {
                 return val.id === id ? {
                     id: val.id,
+                    role: val.role,
                     name: val.name,
                     country: val.country,
                     salary: newSalary,
@@ -71,6 +72,8 @@ function Staff() {
         });   
     };
 
+    
+
     return(
         <div className="container">
             <div className="row">
@@ -84,32 +87,9 @@ function Staff() {
                 </div>                
             </div>
 
-            {/* Roles div
-            <div className="row row content">
-                <div className="col-12 col-md-5">
-                        <Card>
-                            <CardHeader className="bg-primary text-white">Roles</CardHeader>
-                            <CardBody>
-                                <dl className="row p-1">
-                                    <dt className="col-6">1</dt>
-                                    <dd className="col-6">CEO</dd>
-                                    <dt className="col-6">2</dt>
-                                    <dd className="col-6">CTO</dd>
-                                    <dt className="col-6">3</dt>
-                                    <dd className="col-6">Asistente</dd>
-                                    <dt className="col-6">4</dt>
-                                    <dd className="col-6">Segundo Cheff</dd>
-                                </dl>
-                            </CardBody>
-                        </Card>
-                        <hr />
-                </div>
-            </div> */}
-            
-
             <div className="information">
                 <label>Cargo:</label>
-                <input type="text" onChange={(event) => {setRole(event.target.value);}}/>
+                <input type="number" onChange={(event) => {setRole(event.target.value);}}/>
                 <label>Nombre:</label>
                 <input type="text" onChange={(event) => {setName(event.target.value);}}/>
                 <label>País:</label>
@@ -124,6 +104,7 @@ function Staff() {
                     return (
                         <div className="employee">
                             <div>
+                                <h3>Id: {val.id}</h3>
                                 <h3>Cargo: {val.role}</h3>
                                 <h3>Nombre: {val.name}</h3>
                                 <h3>País: {val.country}</h3>
