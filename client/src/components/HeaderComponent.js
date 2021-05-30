@@ -48,6 +48,7 @@ class Header extends Component {
                                     <NavLink className="nav-link"  to='/roles'><span className="fa fa-tags fa-lg"></span>Cargos</NavLink>
                                 </NavItem>
                                 <NavItem>
+<<<<<<< HEAD
                                     <NavLink className="nav-link" to='/staff'><span className="fa fa-users fa-lg"></span>Staff</NavLink>
                                 </NavItem>
                                 <NavItem>
@@ -55,6 +56,12 @@ class Header extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span>Foro</NavLink>
+=======
+                                    <NavLink className="nav-link" to='/check'><span className="fa fa-user-check fa-lg"></span> Check in/out</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span> Foro</NavLink>
+>>>>>>> fa829b026fdc063a1cfaeac9d2703a44f67b030f
                                 </NavItem>
                             </Nav>
                         </Collapse>
