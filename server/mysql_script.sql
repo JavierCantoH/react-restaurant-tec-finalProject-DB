@@ -29,28 +29,6 @@ CREATE TABLE attendance(
 	PRIMARY KEY(id)
 );
 
-# STORED PROCEDURES: 
-DROP PROCEDURE GetRoles;
-DROP PROCEDURE GetEmployees;
-DROP PROCEDURE GetAttendances;
-
-DELIMITER $$
-CREATE PROCEDURE GetRoles()
-BEGIN SELECT * FROM role;    
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE GetEmployees()
-BEGIN SELECT * FROM empleado;    
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE GetAttendances()
-BEGIN SELECT * FROM attendance;    
-END$$
-DELIMITER ;
 
 # TRIGGERS:
 CREATE TABLE empleado_trigger_table (
@@ -60,7 +38,6 @@ CREATE TABLE empleado_trigger_table (
     changedat DATETIME DEFAULT NULL,
     action VARCHAR(50) DEFAULT NULL
 );
-
 CREATE TRIGGER before_salary_update 
 BEFORE UPDATE ON empleado
 FOR EACH ROW INSERT INTO empleado_trigger_table SET action = 'update', id = OLD.id, salary = OLD.salary, changedat = NOW();
@@ -68,3 +45,42 @@ SHOW TRIGGERS;
 # Make a salary update to test TRIGGER
 SELECT * FROM empleado_trigger_table;
 
+
+
+
+# STORED FUNCTION & STORED PROCEDURE:
+DELIMITER $$
+CREATE FUNCTION HoursWorked(check_in datetime, check_out datetime) 
+RETURNS time DETERMINISTIC
+BEGIN
+DECLARE total_time time;
+SET total_time = TIMEDIFF(check_in, check_out);
+RETURN (total_time);
+END$$
+DELIMITER ;
+SHOW FUNCTION STATUS WHERE db = 'employeedb';
+
+DELIMITER $$
+CREATE PROCEDURE GetTotalHours(IN idEmployee INT, IN fecha DATE)
+BEGIN SELECT 
+A1.idEmployee,
+A1.created AS check_in_at,
+A2.created AS check_out_at,
+HoursWorked(A2.created, A1.created) AS total_time
+FROM
+attendance AS A1 
+INNER JOIN attendance AS A2 
+ON A1.idEmployee = A2.idEmployee 
+AND DATE(A1.created) = DATE(A2.created) 
+WHERE 1 = 1 
+AND A1.status = 'check_in' 
+AND A2.status = 'check_out' 
+AND DATE(A1.created) BETWEEN fecha 
+AND fecha 
+AND DATE(A2.created) BETWEEN fecha 
+AND fecha 
+AND A1.idEmployee = idEmployee
+ORDER BY A1.created DESC;    
+END$$
+DELIMITER ;
+CALL GetTotalHours(1, '2021-05-30');

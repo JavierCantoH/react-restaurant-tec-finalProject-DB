@@ -1,5 +1,5 @@
 # Cargos, Staff, Check in/out  
-Reference to /server/mysql_script.txt
+Reference to /server/mysql_script.sql
 
 ## Database explination
 The database is created in MySQL (https://www.mysql.com) and with React (https://es.reactjs.org/docs/create-a-new-react-app.html), the server is Node.js Express (https://expressjs.com/es/). 

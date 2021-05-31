@@ -8,6 +8,7 @@ import Staff from './StaffComponent.js';
 import Foro from './ForoComponent.js';
 import Check from './Checkinout';
 import Roles from './RolesComponent';
+import Hours from './TotalHoursComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';
@@ -65,6 +66,7 @@ class Main extends Component {
                         <Route exact path='/staff' component={() => <Staff/>} />
                         <Route exact path='/foro' component={() => <Foro />} />
                         <Route exact path='/check' component={() => <Check />} />
+                        <Route exact path='/hours' component={() => <Hours />} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />

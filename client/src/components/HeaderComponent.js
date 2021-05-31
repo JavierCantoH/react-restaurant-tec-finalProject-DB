@@ -54,10 +54,10 @@ class Header extends Component {
                                     <NavLink className="nav-link" to='/check'><span className="fa fa-user-check fa-lg"></span>Check in/out</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span>Foro</NavLink>
+                                    <NavLink className="nav-link" to='/hours'><span className="fa fa-clock fa-lg"></span>Total de Horas</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span> Foro</NavLink>
+                                    <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span>Foro</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

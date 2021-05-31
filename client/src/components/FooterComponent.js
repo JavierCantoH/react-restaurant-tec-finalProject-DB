@@ -16,6 +16,7 @@ function Footer() {
                             <li><Link to='/staff'>Staff</Link></li>
                             <li><Link to='/foro'>Foro</Link></li>
                             <li><Link to='/check'>Check in/out</Link></li>
+                            <li><Link to='/hours'>Total de Horas</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">
