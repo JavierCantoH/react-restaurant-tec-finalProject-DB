@@ -12,10 +12,7 @@ function Footer() {
                             <li><Link to='/home'>Inicio</Link></li>
                             <li><Link to='/aboutus'>Conócenos</Link></li>
                             <li><Link to='/menu'>Menú</Link></li>
-<<<<<<< HEAD
                             <li><Link to='/roles'>Cargos</Link></li>
-=======
->>>>>>> fa829b026fdc063a1cfaeac9d2703a44f67b030f
                             <li><Link to='/staff'>Staff</Link></li>
                             <li><Link to='/foro'>Foro</Link></li>
                             <li><Link to='/check'>Check in/out</Link></li>

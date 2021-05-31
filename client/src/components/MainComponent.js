@@ -7,10 +7,7 @@ import About from './AboutComponent';
 import Staff from './StaffComponent.js';
 import Foro from './ForoComponent.js';
 import Check from './Checkinout';
-<<<<<<< HEAD
 import Roles from './RolesComponent';
-=======
->>>>>>> fa829b026fdc063a1cfaeac9d2703a44f67b030f
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';

@@ -21,11 +21,8 @@ function Check() {
             status: status,
             created: created, 
         }).then(() => {
-<<<<<<< HEAD
             alert("Check agregado");
-=======
             alert("Empleado agregado");
->>>>>>> fa829b026fdc063a1cfaeac9d2703a44f67b030f
             setStatusList([...statusList, {
                 idEmployee: idEmployee,
                 status: status,
@@ -60,10 +57,6 @@ function Check() {
                 <input type="number" onChange={(event) => {setIdEmployee(event.target.value);}}/>
                 <label>Status:</label>
                 <input type="text" onChange={(event) => {setStatus(event.target.value);}}/>
-<<<<<<< HEAD
-=======
-                {/* '2015-11-05 14:29:36' */}
->>>>>>> fa829b026fdc063a1cfaeac9d2703a44f67b030f
                 <label>Fecha:</label>
                 <input type="text" onChange={(event) => {setCreated(event.target.value);}}/>
                 <button onClick={addCheck}>Añadir Check in/out</button>
