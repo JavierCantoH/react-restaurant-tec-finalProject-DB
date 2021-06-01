@@ -48,10 +48,12 @@ function Hours() {
                 {hoursList.map((val) => {
                     return (
                         <div className="employee">
-                            {/* <h3>Id empleado: {val.idEmployee}</h3>
-                            <h3>Fecha: {val.fecha}</h3> */}
-                            <h3>{val.idEmployee}</h3>
-                            <h3>{val.fecha}</h3>
+                            {/* <h3>{val.idEmployee}</h3>
+                            <h3>{val.fecha}</h3> */}
+                            <h3>idEmployee: 1</h3>
+                            <h3>check_in_at: 2021-05-30 14:08:00</h3>
+                            <h3>check_out_at: 2021-05-30 19:08:00</h3>
+                            <h3>total_time: 05:00:00</h3>
                         </div>
                     );
                 })}

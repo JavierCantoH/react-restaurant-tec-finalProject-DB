@@ -13,7 +13,7 @@ function Footer() {
                             <li><Link to='/aboutus'>Conócenos</Link></li>
                             <li><Link to='/menu'>Menú</Link></li>
                             <li><Link to='/staff'>Staff</Link></li>
-                            <li><Link to='/todo'>Todos list</Link></li>
+                            <li><Link to='/todo'>To do list</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">

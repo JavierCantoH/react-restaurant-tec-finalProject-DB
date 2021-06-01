@@ -27,62 +27,6 @@ const Todo = require("./models/Todo");
 
 
 
-//-------------POSTGRESQL----------------
-//const bodyParser = require("body-parser");
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
-app.get("/menu", (req, res) => {
-    res.json({message: "Menu Postgresql"})
-})
-const dbConfig = require("/config/db.config.js");
-
-const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: false,
-
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
-});
-//const dbp = {};
-dbp.Sequelize = Sequelize;
-dbp.sequelize = sequelize;
-dbp.api = require("/models/Menu.js")(sequelize, Sequelize);
-module.exports = dbp;
-//app.use();
-const dbp = require("/models");
-dbp.sequelize.sync();
-dbp.sequelize.sync({ force: true }).then(() => {
-    console.log("Drop and re-sync db.");
-});
-
-module.exports = (sequelize, Sequelize) => {
-    const Tutorial = sequelize.define("tutorial", {
-      title: {
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.STRING
-      },
-      published: {
-        type: Sequelize.BOOLEAN
-      }
-    });
-  
-    return Tutorial;
-};
-
-
-
-
-
-
-
 
 
 // ------------- MYSQL ----------------------
