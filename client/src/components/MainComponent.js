@@ -5,7 +5,9 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import About from './AboutComponent';
 import Staff from './StaffComponent.js';
-import Foro from './ForoComponent.js';
+import Todo from './TodoListComponent.js';
+import EditTodo from './EditTodoComponent.js';
+import CreateTodo from './CreateTodoComponent.js';
 import Check from './Checkinout';
 import Roles from './RolesComponent';
 import Hours from './TotalHoursComponent';
@@ -64,7 +66,9 @@ class Main extends Component {
                         <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
                         <Route exact path='/roles' component={() => <Roles/>} />
                         <Route exact path='/staff' component={() => <Staff/>} />
-                        <Route exact path='/foro' component={() => <Foro />} />
+                        <Route exact path='/todo' component={() => <Todo />} />
+                        <Route exact path='/edittodo/:id' component={() => <EditTodo />} />
+                        <Route exact path='/createtodo' component={() => <CreateTodo />} />
                         <Route exact path='/check' component={() => <Check />} />
                         <Route exact path='/hours' component={() => <Hours />} />
                         <Redirect to="/home" />

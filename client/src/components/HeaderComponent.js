@@ -57,7 +57,7 @@ class Header extends Component {
                                     <NavLink className="nav-link" to='/hours'><span className="fa fa-clock fa-lg"></span>Total de Horas</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to='/foro'><span className="fa fa-comments fa-lg"></span>Foro</NavLink>
+                                    <NavLink className="nav-link" to='/todo'><span className="fa fa-ellipsis-h fa-lg"></span>Todos</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

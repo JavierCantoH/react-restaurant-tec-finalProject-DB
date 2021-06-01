@@ -9,6 +9,25 @@ const { json } = require("express");
 app.use(cors());
 //use express
 app.use(express.json())
+//define port
+const PORT = 3001;
+// mongoose
+const mongoose = require("mongoose");
+//connect mongoose to mongodb (todos is the name of the db)
+mongoose.connect('mongodb://127.0.0.1:27017/todos', {useNewUrlParser: true})
+mongoose.connection.once('open', () => {
+    console.log("Mongodb connection established successfully")
+});
+//import Todo model for mongoose
+const Todo = require("./models/Todo");
+
+
+
+
+
+
+
+// ------------- MYSQL ----------------------
 //credentials mysql
 const db = mysql.createConnection({
     user:'root',
@@ -16,7 +35,6 @@ const db = mysql.createConnection({
     password: '11Camotit0_JL99',
     database: 'employeedb'
 });
-
 
 // insert new employee 
 app.post('/create',(req, res) => {
@@ -37,7 +55,6 @@ app.post('/create',(req, res) => {
         }
     );
 });
-
 // select * to show all employees
 app.get('/employee', (req, res) => {
     db.query("SELECT * FROM empleado", (err, result) => {
@@ -48,7 +65,6 @@ app.get('/employee', (req, res) => {
         }
     });
 });
-
 // update employee salary 
 app.put('/updatesalary', (req, res) => {
     const id = req.body.id;
@@ -61,7 +77,6 @@ app.put('/updatesalary', (req, res) => {
         }
     });
 });
-
 // delete employee
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
@@ -73,7 +88,6 @@ app.delete('/delete/:id', (req, res) => {
         }
     });
 });
-
 // insert new status 
 app.post('/addCheck',(req, res) => {
     const idEmployee = req.body.idEmployee;
@@ -92,7 +106,6 @@ app.post('/addCheck',(req, res) => {
         }
     );
 });
-
 // select * to show all status
 app.get('/showCheck', (req, res) => {
     db.query("SELECT * FROM attendance", (err, result) => {
@@ -103,10 +116,6 @@ app.get('/showCheck', (req, res) => {
         }
     });
 });
-
-
-
-
 // insert new role 
 app.post('/createrole',(req, res) => {
     const roles = req.body.roles;
@@ -121,7 +130,6 @@ app.post('/createrole',(req, res) => {
         }
     );
 });
-
 // select * to show all roles
 app.get('/roles', (req, res) => {
     db.query("SELECT * FROM role", (err, result) => {
@@ -132,7 +140,6 @@ app.get('/roles', (req, res) => {
         }
     });
 });
-
 // update role name 
 app.put('/updaterole', (req, res) => {
     const id = req.body.id;
@@ -145,7 +152,6 @@ app.put('/updaterole', (req, res) => {
         }
     });
 });
-
 // delete role
 app.delete('/deleterole/:id', (req, res) => {
     const id = req.params.id;
@@ -157,7 +163,6 @@ app.delete('/deleterole/:id', (req, res) => {
         }
     });
 });
-
 // select * to show hour worked in one day by one employee
 app.get('/hours', (req, res) => {
     const idEmployee = req.body.idEmployee;
@@ -172,5 +177,61 @@ app.get('/hours', (req, res) => {
 });
 
 
-//start app
-app.listen(3001,() => console.log("Express server is running on port 3001"));
+
+
+
+
+
+
+
+// ------------- MONGODB ----------------------
+//find all todos
+app.get("/todo", (req, res) => {
+    Todo.find((err, todos) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(todos);
+      }
+    });
+});
+// post a new todo item
+app.post("/createtodo", (req, res) => {
+    const todo = new Todo(req.body);
+    todo
+        .save()
+        .then((todo) => {
+            res.json(todo);
+        })
+        .catch((err) => {
+            res.status(500).send(err.message);
+        });
+});
+// edit todo item (first you find it)
+app.get("todo/:id", (req, res) => {
+    const id = req.params.id;
+    Todo.findById(id, (err, todo) => {
+        res.json(todo);
+    });
+});
+//edit todo item (then you post)
+app.post("todo/:id", (req, res) => {
+    const id = req.params.id;
+    Todo.findById(id, (err, todo) => {
+        if (!todo) {
+        res.status(404).send("Todo not found");
+        } else {
+        todo.text = req.body.text;
+
+        todo
+            .save()
+            .then((todo) => {
+            res.json(todo);
+            })
+            .catch((err) => res.status(500).send(err.message));
+        }
+    });
+});
+
+//start app and verify it is running
+app.listen(PORT,() => console.log("Express server is running on port " + PORT));

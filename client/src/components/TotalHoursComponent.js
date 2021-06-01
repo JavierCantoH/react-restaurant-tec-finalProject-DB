@@ -44,11 +44,13 @@ function Hours() {
             </div>
             <div className="employees">
                 <button onClick={getHours}>Total de Horas</button>
-                {hoursList.map((val, key) => {
+                {hoursList.map((val) => {
                     return (
                         <div className="employee">
-                            <h3>Id empleado: {val.idEmployee}</h3>
-                            <h3>Fecha: {val.fecha}</h3>
+                            {/* <h3>Id empleado: {val.idEmployee}</h3>
+                            <h3>Fecha: {val.fecha}</h3> */}
+                            <h3>{val.idEmployee}</h3>
+                            <h3>{val.fecha}</h3>
                         </div>
                     );
                 })}
