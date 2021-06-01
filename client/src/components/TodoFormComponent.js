@@ -1,6 +1,5 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Button} from 'reactstrap';
 import { useForm } from "react-hook-form";
 
 function TodoForm({ todo, onSubmit }) {
@@ -16,12 +15,8 @@ function TodoForm({ todo, onSubmit }) {
     return(
         <div className="container">
             <div className="row">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Todo Form</BreadcrumbItem>
-                </Breadcrumb>
                 <div className="col-12">
-                    <h3>Todo Form</h3>
+                    <h3>Escribe nuevo to do</h3>
                     <hr />
                 </div>                
             </div>
@@ -38,9 +33,9 @@ function TodoForm({ todo, onSubmit }) {
                         />
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">
-                        Save Todo
-                        </button>
+                        <Button color="success" type="submit" className="btn btn-primary">
+                        Guardar
+                        </Button>
                     </div>
                 </form>
             </div>

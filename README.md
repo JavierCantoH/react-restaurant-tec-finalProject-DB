@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Info
 
- ITESM Campus Puebla.\ 
+ ITESM Campus Puebla. \ 
  Luis Javier Canto Hurtado - Dafne Linette Badillo Campuzano
  ### pre-requirements
  npm v7.11.2 - node v16.1.0
@@ -15,17 +15,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  Follow the mysql_script.sql to create the Db an the tables.\
  Inside /server/index.js change mysql credentials (user and password).\
  \
- Move to the project directory in your terminal.\
- Type:\
- yarn install\
- Move inside client directory in your terminal.\
- yarn start
+ 
+    -Move to the project directory in your terminal.\
+    Type:\
+    yarn install\
+    -Move inside server directory in your terminal.\
+    node index_server.js \
+    You should see the next messages: \
+    Express server is running on port 3001 \
+    Mongodb connection established successfully \
+    -Move inside client directory in your terminal.\
+    yarn start
 
- ### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 

@@ -45,19 +45,10 @@ class Header extends Component {
                                     <NavLink className="nav-link"  to='/menu'><span className="fa fa-utensils fa-lg"></span> Menú</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link"  to='/roles'><span className="fa fa-tags fa-lg"></span>Cargos</NavLink>
-                                </NavItem>
-                                <NavItem>
                                     <NavLink className="nav-link" to='/staff'><span className="fa fa-users fa-lg"></span>Staff</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to='/check'><span className="fa fa-user-check fa-lg"></span>Check in/out</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to='/hours'><span className="fa fa-clock fa-lg"></span>Total de Horas</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to='/todo'><span className="fa fa-ellipsis-h fa-lg"></span>Todos</NavLink>
+                                    <NavLink className="nav-link" to='/todo'><span className="fa fa-ellipsis-h fa-lg"></span>Todos list</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

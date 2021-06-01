@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 //using axios to make API request
 import Axios from 'axios'
@@ -67,6 +67,7 @@ function Roles() {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/staff">Staff</Link></BreadcrumbItem>
                     <BreadcrumbItem active>Cargos</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
@@ -77,11 +78,11 @@ function Roles() {
 
             <div className="information">
                 <label>Cargo:</label>
-                <input type="text" onChange={(event) => {setRoles(event.target.value);}}/>
-                <button onClick={addRole}>Añadir Cargo</button>
+                <input type="text" placeholder="Cheff" onChange={(event) => {setRoles(event.target.value);}}/>
+                <Button color="success" onClick={addRole}>Añadir Cargo</Button>
             </div>
             <div className="employees">
-                <button onClick={getRoles}>Mostrar Cargos</button>
+                <Button color="info" onClick={getRoles}>Mostrar Cargos</Button>
                 {roleList.map((val, key) => {
                     return (
                         <div className="employee">
@@ -91,8 +92,8 @@ function Roles() {
                             </div>
                             <div>
                                 <input type="text" placeholder="Cambiar nombre del cargo" onChange={(event) => {setNewRole(event.target.value);}}/>
-                                <button onClick={() => {updateRoleName(val.id);}}>{" "}Modificar cargo</button>
-                                <button onClick={() => {deleteRole(val.id);}}>Eliminar Cargo</button>
+                                <Button color="warning" onClick={() => {updateRoleName(val.id);}}>{" "}Modificar cargo</Button>
+                                <Button color="danger" onClick={() => {deleteRole(val.id);}}>Eliminar Cargo</Button>
                             </div>
                         </div>
                     );

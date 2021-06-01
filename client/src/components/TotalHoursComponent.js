@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 //using axios to make API request
 import Axios from 'axios'
@@ -28,6 +28,7 @@ function Hours() {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/staff">Staff</Link></BreadcrumbItem>
                     <BreadcrumbItem active>Total de Horas</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
@@ -38,12 +39,12 @@ function Hours() {
 
             <div className="information">
                 <label>Id Empleado:</label>
-                <input type="number" onChange={(event) => {setIdEmployee(event.target.value);}}/>
+                <input type="number" placeholder="1" onChange={(event) => {setIdEmployee(event.target.value);}}/>
                 <label>Fecha:</label>
-                <input type="text" onChange={(event) => {setFecha(event.target.value);}}/>
+                <input type="text" placeholder="2021-05-30" onChange={(event) => {setFecha(event.target.value);}}/>
             </div>
             <div className="employees">
-                <button onClick={getHours}>Total de Horas</button>
+                <Button color="info" onClick={getHours}>Total de Horas</Button>
                 {hoursList.map((val) => {
                     return (
                         <div className="employee">

@@ -18,12 +18,13 @@ function CreateTodo() {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Create Todo</BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/todo">Todo List</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Crear To do</BreadcrumbItem>
                 </Breadcrumb>             
             </div>
             <div className="row">
                 <div className="mt-3">
-                    <h3>Create Todo Item</h3>
+                    <h3>Crear nuevo</h3>
                     <TodoForm onSubmit={onSubmit} />
                 </div>  
             </div>

@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Breadcrumb, BreadcrumbItem} from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 //using axios to make API request
 import Axios from 'axios'
@@ -84,22 +84,25 @@ function Staff() {
                 <div className="col-12">
                     <h3>Staff</h3>
                     <hr />
+                    <Link to="/roles" className="btn btn-success">Cargos</Link>
+                    <Link to="/check" className="btn btn-info">Check in/out</Link>
+                    <Link to="/hours" className="btn btn-warning">Total de horas</Link>
                 </div>                
             </div>
 
             <div className="information">
                 <label>Cargo:</label>
-                <input type="number" onChange={(event) => {setRole(event.target.value);}}/>
+                <input type="number" placeholder="1"onChange={(event) => {setRole(event.target.value);}}/>
                 <label>Nombre:</label>
-                <input type="text" onChange={(event) => {setName(event.target.value);}}/>
+                <input type="text" placeholder="Juan" onChange={(event) => {setName(event.target.value);}}/>
                 <label>País:</label>
-                <input type="text" onChange={(event) => {setCountry(event.target.value);}}/>
+                <input type="text" placeholder="USA" onChange={(event) => {setCountry(event.target.value);}}/>
                 <label>Salario:</label>
-                <input type="number" onChange={(event) => {setSalary(event.target.value);}}/>
-                <button onClick={addEmployee}>Añadir Empleado</button>
+                <input type="number" placeholder="2000" onChange={(event) => {setSalary(event.target.value);}}/>
+                <Button color="success" onClick={addEmployee}>Añadir Empleado</Button>
             </div>
             <div className="employees">
-                <button onClick={getEmployees}>Mostrar Empleados</button>
+                <Button color="info" onClick={getEmployees}>Mostrar Empleados</Button>
                 {employeeList.map((val, key) => {
                     return (
                         <div className="employee">
@@ -108,12 +111,12 @@ function Staff() {
                                 <h3>Cargo: {val.role}</h3>
                                 <h3>Nombre: {val.name}</h3>
                                 <h3>País: {val.country}</h3>
-                                <h3>Salario {val.salary}</h3>
+                                <h3>Salario: ${val.salary}</h3>
                             </div>
                             <div>
                                 <input type="text" placeholder="$2000..." onChange={(event) => {setNewSalary(event.target.value);}}/>
-                                <button onClick={() => {updateEmployeeSalary(val.id);}}>{" "}Modificar salario</button>
-                                <button onClick={() => {deleteEmployee(val.id);}}>Eliminar Empleado</button>
+                                <Button color="warning" onClick={() => {updateEmployeeSalary(val.id);}}>{" "}Modificar salario</Button>
+                                <Button color="danger" onClick={() => {deleteEmployee(val.id);}}>Eliminar Empleado</Button>
                             </div>
                         </div>
                     );

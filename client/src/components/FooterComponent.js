@@ -12,11 +12,8 @@ function Footer() {
                             <li><Link to='/home'>Inicio</Link></li>
                             <li><Link to='/aboutus'>Conócenos</Link></li>
                             <li><Link to='/menu'>Menú</Link></li>
-                            <li><Link to='/roles'>Cargos</Link></li>
                             <li><Link to='/staff'>Staff</Link></li>
-                            <li><Link to='/check'>Check in/out</Link></li>
-                            <li><Link to='/hours'>Total de Horas</Link></li>
-                            <li><Link to='/todo'>Todo</Link></li>
+                            <li><Link to='/todo'>Todos list</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">

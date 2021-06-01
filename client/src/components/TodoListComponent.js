@@ -20,12 +20,12 @@ function TodoList() {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Todo list</BreadcrumbItem>
+                    <BreadcrumbItem active>To do list</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
-                    <h3>Todo list</h3>
+                    <h3>To do list</h3>
                     <hr />
-                    <Link to="/createtodo" className="btn btn-primary">Create todo</Link>
+                    <Link to="/createtodo" className="btn btn-primary">Crear</Link>
                 </div>                
             </div>
             <div className="row">
@@ -33,7 +33,7 @@ function TodoList() {
                     <table className="table table-striped mt-3">
                         <thead>
                             <tr>
-                            <th>Text</th>
+                            <th>Pendientes:</th>
                             {/* <th>Action</th> */}
                             </tr>
                         </thead>

@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 //using axios to make API request
 import Axios from 'axios'
@@ -44,6 +44,7 @@ function Check() {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Inicio</Link></BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/staff">Staff</Link></BreadcrumbItem>
                     <BreadcrumbItem active>Check in/out</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
@@ -54,15 +55,15 @@ function Check() {
 
             <div className="information">
                 <label>Id Empleado:</label>
-                <input type="number" onChange={(event) => {setIdEmployee(event.target.value);}}/>
+                <input type="number" placeholder="1" onChange={(event) => {setIdEmployee(event.target.value);}}/>
                 <label>Status:</label>
-                <input type="text" onChange={(event) => {setStatus(event.target.value);}}/>
+                <input type="text" placeholder="check_in" onChange={(event) => {setStatus(event.target.value);}}/>
                 <label>Fecha:</label>
-                <input type="text" onChange={(event) => {setCreated(event.target.value);}}/>
-                <button onClick={addCheck}>Añadir Check in/out</button>
+                <input type="text" placeholder="2015-11-05 14:29:36"onChange={(event) => {setCreated(event.target.value);}}/>
+                <Button color="success" onClick={addCheck}>Añadir Check in/out</Button>
             </div>
             <div className="employees">
-                <button onClick={getChecks}>Mostrar Checks in/out</button>
+                <Button color="info" onClick={getChecks}>Mostrar Checks in/out</Button>
                 {statusList.map((val, key) => {
                     return (
                         <div className="employee">

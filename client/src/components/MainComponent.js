@@ -64,13 +64,13 @@ class Main extends Component {
                         <Route path='/home' component={HomePage} />
                         <Route exact path='/menu' component={() => <Menu/>} />
                         <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
-                        <Route exact path='/roles' component={() => <Roles/>} />
                         <Route exact path='/staff' component={() => <Staff/>} />
+                        <Route exact path='/roles' component={() => <Roles/>} />
+                        <Route exact path='/check' component={() => <Check />} />
+                        <Route exact path='/hours' component={() => <Hours />} />
                         <Route exact path='/todo' component={() => <Todo />} />
                         <Route exact path='/edittodo/:id' component={() => <EditTodo />} />
                         <Route exact path='/createtodo' component={() => <CreateTodo />} />
-                        <Route exact path='/check' component={() => <Check />} />
-                        <Route exact path='/hours' component={() => <Hours />} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />
