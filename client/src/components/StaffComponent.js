@@ -84,6 +84,7 @@ function Staff() {
                 <div className="col-12">
                     <h3>Staff</h3>
                     <hr />
+                    <Link to="/trigger" className="btn btn-dark">Cambios de salario</Link>
                     <Link to="/roles" className="btn btn-success">Cargos</Link>
                     <Link to="/check" className="btn btn-info">Check in/out</Link>
                     <Link to="/hours" className="btn btn-warning">Total de horas</Link>

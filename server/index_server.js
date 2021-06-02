@@ -177,6 +177,16 @@ app.get('/hours', (req, res) => {
         }
     });
 });
+// select * to show all triggers
+app.get('/trigger', (req, res) => {
+    db.query("SELECT * FROM empleado_trigger_table", (err, result) => {
+        if(err){
+            console.log(err);
+        } else{
+            res.send(result);
+        }
+    });
+});
 
 
 
@@ -236,4 +246,8 @@ app.post("todo/:id", (req, res) => {
 });
 
 //start app and verify it is running
+
 app.listen(PORT,() => console.log("Express server is running on port " + PORT));
+// app.listen(process.env.PORT || PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });

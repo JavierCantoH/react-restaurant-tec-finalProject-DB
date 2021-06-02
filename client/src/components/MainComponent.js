@@ -11,6 +11,7 @@ import CreateTodo from './CreateTodoComponent.js';
 import Check from './Checkinout';
 import Roles from './RolesComponent';
 import Hours from './TotalHoursComponent';
+import Trigger from './SalarioComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';
@@ -71,6 +72,7 @@ class Main extends Component {
                         <Route exact path='/todo' component={() => <Todo />} />
                         <Route exact path='/edittodo/:id' component={() => <EditTodo />} />
                         <Route exact path='/createtodo' component={() => <CreateTodo />} />
+                        <Route exact path='/trigger' component={() => <Trigger />} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />
